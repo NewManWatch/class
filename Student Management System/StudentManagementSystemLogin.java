@@ -12,6 +12,7 @@ import javax.swing.*;
 	  @Job  login the StudentManagementSystem
      */
 public class StudentManagementSystemLogin{
+	public static int x = 0;		/*  x 是请求登录次数 如果 登录成功设置x为0 如果 x >= 3 拒绝登录请求        */
 	public static void main (String[] args){
 	    /*      
          @autor NewManWatch
@@ -24,27 +25,23 @@ public class StudentManagementSystemLogin{
 		 
 		 
 		 
-        */
-	 	
-		
-		
-		
-		
-		
+        */	
+        
 		JFrame frame = new JFrame("登录页面");/* 实例化窗体对象*/
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JTextField jPasswordField1 = new JTextField(30);/* 定义文框*/
-        JPasswordField jPasswordField2 = new JPasswordField();/* 定义密文框*/
-        jPasswordField2.setEchoChar('*');/* 设置回显字符为**/		
+        JTextField jPasswordField1 = new JTextField(30);            /* 定义文框*/
+        JPasswordField jPasswordField2 = new JPasswordField();      /* 定义密文框*/
+        jPasswordField2.setEchoChar('*');                           /* 设置回显字符为**/		
 		frame.setLayout(null);  
         JButton button = new JButton("登入");		
         button.setBounds(10, 70,90 ,30 );//
 		Monitor m = new Monitor();        //创建事件监听器m
         button.addActionListener(new ActionListener (){
-			public void actionPerformed(ActionEvent e) {                                             
-                DeterminingPasswork.out(jPasswordField1.getText(),jPasswordField2.getPassword());//直接在main中用gettext避免使用字符串获取输入再调用方法
-	           //	DeterminingPasswork.out( e.getActionCommand());		
+			public void actionPerformed(ActionEvent e) {         
+                DeterminingPasswork.out(jPasswordField1.getText(),jPasswordField2.getPassword(),x);
+				
+				//直接在main中用gettext避免使用字符串获取输入再调用方法
                } 			
 	    	});               
         frame.setVisible(true);
