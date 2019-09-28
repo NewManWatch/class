@@ -6,13 +6,10 @@ public class DeterminingPasswork {
      */
 	public static void main(String ages[]){       		
 	}
-    public static void out(String useN ,char[] pressW,int x ) {		
-		/*  x 是请求登录次数 如果 登录成功设置x为0 如果 x >= 3 拒绝登录请求        */
+    public static void out(String useN ,char[] pressW) {		
+		String strPW = new String (pressW);	
+
 		
-		if ( x >= 3){
-			return ;
-		}
-		String strPW = new String (pressW);		
 		switch( useN ){
 			
 			//case 后面接用户名
@@ -20,17 +17,14 @@ public class DeterminingPasswork {
 			//等有时间改成与数据库连的			
 			case "123": if(strPW.equals("123")){				
 		                    System.out.println("login.........yes");
-							x = 0 ;
+						
 		                }else{
 		                    System.out.println("密码错误");
-							x = x + 1;
+							
 	                    }break;
-			default :System.out.println("无此用户名") ;x = x + 1;break;
-		}
-	 
-    }
-
-	
+			default :System.out.println("无此用户名") ;break;
+		}	 
+    }	
 }
 
 
